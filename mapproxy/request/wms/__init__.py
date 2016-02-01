@@ -125,7 +125,10 @@ class WMSMapRequestParams(RequestParams):
 
     def _set_format(self, format):
         if '/' not in format:
-            format = 'image/' + format
+            if format == 'pbf':
+                format = 'application/x-protobuf;type=mapbox-vector'
+            else:
+                format = 'image/' + format
         self['format'] = format
 
     format = property(_get_format, _set_format)
