@@ -461,7 +461,7 @@ def split_mime_type(mime_type):
     mime_class = None
     if '/' in mime_type:
         mime_class, mime_type = mime_type.split('/', 1)
-    if ';' in mime_type:
-        mime_type, options = [part.strip() for part in mime_type.split(';', 2)]
+#    if ';' in mime_type:
+#        mime_type, options = [part.strip() for part in mime_type.split(';', 2)]
     return mime_class, mime_type, options
 
