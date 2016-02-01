@@ -67,7 +67,7 @@ class WMSClient(object):
         return resp
 
     def _check_resp(self, resp, url):
-        if not resp.headers.get('Content-type', 'image/').startswith('image/') or resp.headers.get('Content-type', 'application/').startswith('application/x-protobuf')):
+        if not (resp.headers.get('Content-type', 'image/').startswith('image/') or resp.headers.get('Content-type', 'application/').startswith('application/x-protobuf')):
             # log response depending on content-type
             if resp.headers['Content-type'].startswith(('text/', 'application/vnd.ogc')):
                 log_size = 8000 # larger xml exception
